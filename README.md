@@ -8,7 +8,7 @@ This was heavily inspired by the [rvm](https://github.com/rvm/rvm) switch for .r
 
 ### Prerequirements
 
-* `zsh` (duh)
+* `zsh` (duh) and `oh-my-zsh` (for plugin compatibility)
 * `php-version` (used for the zsh plugin to automatically switch between php versions)
   * see [GitHub: wilmoore/php-version](https://github.com/wilmoore/php-version/blob/master/README.md)
 
