@@ -17,7 +17,7 @@ This was heavily inspired by the [rvm](https://github.com/rvm/rvm) switch for .r
 
 * Add the plugin into your zsh custom folder
   * See the documentation from [GitHub: robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization)
-* Add the plugin to your `.zshrc` and definen an default PHP version to switch back to if there is no `.phpvrc` file:
+* Add the plugin to your `.zshrc` and define an default PHP version to switch back to if there is no `.phpvrc` file:
 ```bash
 plugins=(
     ...

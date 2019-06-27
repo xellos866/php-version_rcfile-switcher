@@ -1,12 +1,12 @@
-# Zsh hook function to load .phpvrc files
+# zsh hook function to load .phpvrc files
 load_phpvrc()
 {
-    # Current php version without patch version
+    # current php version without patch version
     local php_current_version=$(php -r "echo PHP_VERSION;" | cut -d'.' -f 1,2)
-    # Path to the .phpvrc file
+    # path to the .phpvrc file
     local phpvrc_path="$(php_find_phpvrc)"
 
-    # Check if there exists a .phpvrc file
+    # check if there exists a .phpvrc file
     if [ -f "$phpvrc_path" ]; then
         local php_rcfile_version=$(<${phpvrc_path})
     else
@@ -27,17 +27,16 @@ load_phpvrc()
         return
     fi
 
-    # Check if the php version in .phpvrc is installed on the computer
+    # check if the php version in .phpvrc is installed on the computer
     if [ `php-version | grep "$php_rcfile_version" | wc -l` = 0 ]; then
-        # Install the php version in .phpvrc on the computer and switch to that php version
         echo "The PHP version specified in the .phpvrc file isn't installed!"
         echo "Install PHP in version: $php_rcfile_version"
         return
     fi
 
-    # Check if the current php version matches the version in .phpvrc
+    # check if the current php version matches the version in .phpvrc
     if [ "$php_rcfile_version" != "$php_current_version" ]; then
-        # Switch php versions
+        # switch php versions
         echo "Using PHP: $php_rcfile_version"
         php-version $php_rcfile_version
     fi
@@ -60,8 +59,8 @@ php_find_up() {
   echo "${path_}"
 }
 
-# Automatically switch php versions when a directory has a `.phpvrc` file
+# marks as function and surppress alias expansion
 autoload -U add-zsh-hook
-# Add the above function when the present working directory (pwd) changes
+# add the above function when the present working directory (pwd) changes
 add-zsh-hook chpwd load_phpvrc
 load_phpvrc
